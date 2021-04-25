@@ -12,7 +12,7 @@ import bcrypt
 @app.route("/")
 def home():
     posts = Posts.query.all()
-    return render_template("home.html", posts=posts)
+    return render_template("home.html", posts=posts, title="Home")
 
 
 @app.route("/about")
@@ -46,6 +46,8 @@ def register():
         record = User(email, password, phone)
         db.session.add(record)
         db.session.commit()
+        flash("Succesfully Registered. You can now log in!", "success")
+        return redirect(url_for('login'))
     return render_template('register.html', title="Register", form=form)
 
 

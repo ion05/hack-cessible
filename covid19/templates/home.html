@@ -1,6 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-{% for post in posts %}
 <div class="covid">
     <center>
         <div class="covid-sec">
@@ -10,15 +9,12 @@
     </center>
 </div>
 <br>
-<center>
-    <h2>Need for COVID-19 related medical supplies</h2>
-</center>
-<br>
 <hr style="width: 75%;">
+{% for post in posts %}
 <article class="media content-section">
     <div class="media-body">
         <h2><a class="article-title"> I need : {{ post.item }}</a></h2>
-        <p class="article-title">In : {{ post.city }}</p>
+        <p class="article-title">In: {{ post.city }}</p>
         <p class="article-content">{{ post.descrip}}</p>
     </div>
 
